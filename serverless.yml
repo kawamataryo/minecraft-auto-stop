@@ -1,0 +1,31 @@
+org: kawamataryo
+app: minecraft-auto-stop
+service: minecraft-auto-stop
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-northeast-1
+  iam:
+    role:
+      statements:
+        - Effect: 'Allow'
+          Action:
+            - 'ec2:StopInstances'
+          Resource: "*"
+
+functions:
+  checkAndStopServer:
+    handler: src/handlers/checkAndStopServer.run
+    events:
+      # Invoke Lambda function every 30 minutes
+      - schedule: rate(1 hour)
+      # NOTE: for debug
+      # - http:
+      #     path: checkAndStopServer
+      #     method: get
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-dotenv-plugin

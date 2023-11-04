@@ -1,0 +1,19 @@
+{
+  "name": "minecraft-auto-stop",
+  "version": "1.0.0",
+  "description": "Example of creating a function that runs as a cron job using the serverless `schedule` event",
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/aws-sdk": "^2.7.0",
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@types/aws-lambda": "^8.10.125",
+    "aws-sdk": "^2.1488.0",
+    "minecraft-protocol": "^1.44.0",
+    "zod": "^3.22.4"
+  }
+}
